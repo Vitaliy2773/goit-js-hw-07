@@ -1,5 +1,5 @@
 import { galleryItems } from './gallery-items.js';
-// Change code below this line
+
 
 
 
@@ -40,6 +40,13 @@ const selectedImg = (e) => {
 
 
     galleryList.addEventListener("keydown", (e) => {
+        if (e.code === "Escape") {
+          instance.close();
+      
+        }
+    })
+  
+     galleryList.removeEventListener("keydown", (e) => {
         if (e.code === "Escape") {
             instance.close();
         }
