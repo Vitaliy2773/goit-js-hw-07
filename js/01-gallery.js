@@ -38,20 +38,21 @@ const selectedImg = (e) => {
     instance.show()
 
 
-
-    galleryList.addEventListener("keydown", (e) => {
-        if (e.code === "Escape") {
-          instance.close();
-      
-        }
-    })
   
-     galleryList.removeEventListener("keydown", (e) => {
-        if (e.code === "Escape") {
-            instance.close();
-        }
-    })
+ const onEscapeClose = (e) => {
+    if (e.code === "Escape") {
+      instance.close();
+      galleryList.removeEventListener("keydown", onEscapeClose)
+    }
+ }
+  
+    galleryList.addEventListener("keydown", onEscapeClose)
 }
 
     galleryList.addEventListener("click", selectedImg)
 
+
+
+
+
+ 
